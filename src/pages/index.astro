@@ -1,9 +1,7 @@
 ---
 // Component Imports
 import Counter from '../components/Counter.svelte';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+import Navigation from '../components/Navigation.astro';
 ---
 
 <html lang="en">
@@ -15,6 +13,7 @@ import Counter from '../components/Counter.svelte';
 	</head>
 	<body>
 		<main>
+			<Navigation />
 			<Counter client:visible>
 				<h1 class="text-lg font-bold text-red-600">Hello, Svelte!</h1>
 			</Counter>
