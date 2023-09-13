@@ -1,0 +1,20 @@
+---
+    import FullImage from '../components/FullImage.astro';
+    import ImgLayout from "../layouts/ImgLayout.astro";
+    import Cards from "../components/Cards.svelte";
+---
+<ImgLayout >
+    <FullImage />
+    <div class="h-[1000px]"></div>
+    <Cards client:visible/>
+</ImgLayout>
+<script>
+    const link = document.querySelector('a[href="#cards"]');
+
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const target = document.querySelector('#cards');
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>

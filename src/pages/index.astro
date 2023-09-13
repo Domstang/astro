@@ -1,22 +1,7 @@
 ---
-// Component Imports
-import Counter from '../components/Counter.svelte';
-import Navigation from '../components/Navigation.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	</head>
-	<body>
-		<main>
-			<Navigation />
-			<Counter client:visible>
-				<h1 class="text-lg font-bold text-red-600">Hello, Svelte!</h1>
-			</Counter>
-		</main>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h2>My awesome blog subtitle</h2>
+</BaseLayout>
