@@ -2,9 +2,22 @@
     import FullImage from '../components/FullImage.astro';
     import ImgLayout from "../layouts/ImgLayout.astro";
     import Cards from "../components/Cards.svelte";
+    import { Content } from "./posts/whyUs.mdx";
+    import * as WhyUs from "./posts/whyUs.mdx";
+    import Heading from "../components/Heading.astro";
+    import Paragraph from "../components/Paragraph.astro";
+
+    let debug = false;
 ---
 <ImgLayout >
     <FullImage />
+    {debug && <p>Show me!</p>}
+    <span class="flex justify-center font-bold mt-2">{WhyUs.frontmatter.title}</span>
+    <div class="flex flex-col gap-8 m-5">
+        <div class="p-4 rounded border border-gray-500">
+            <Content components={{h1: Heading, p:Paragraph}}/>
+        </div>
+    </div>
     <div class="h-[1000px]"></div>
     <Cards client:visible/>
 </ImgLayout>
@@ -17,4 +30,13 @@
         const target = document.querySelector('#cards');
         target.scrollIntoView({ behavior: 'smooth' });
     });
+
 </script>
+<style>
+    h1{
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+</style>
